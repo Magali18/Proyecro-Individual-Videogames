@@ -1,0 +1,11 @@
+.body{
+
+    text-align:right;
+    color:aqua;
+ 
+    background-image: url("../pictures/698580.jpg");
+    background-size:cover;
+    background-position:center;
+  height: 100vh;
+}
+

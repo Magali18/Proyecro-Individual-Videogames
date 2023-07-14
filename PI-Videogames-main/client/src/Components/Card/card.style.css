@@ -1,0 +1,21 @@
+.card-single{
+  margin: 40px 23px;
+    display:flex;
+    flex-direction:column;
+    background-color: rgba(6, 0, 14, 0.778);
+    border: 3px solid rgba(6, 0, 7, 0.765);
+    border-radius: 8px;
+    padding:10px;
+    cursor:pointer;
+    -moz-osx-font-smoothing:auto;
+    backface-visibility: hidden;
+    transform: rotate(0deg);
+    transition: transform 0.25s ease-out;
+    text-align:left;
+    font-size: 10px;
+    font-weight: bold;
+  text-decoration: underline;
+}
+.card-single:hover{
+    transform: scale(1.5)
+}

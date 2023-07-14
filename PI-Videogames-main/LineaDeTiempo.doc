@@ -1,0 +1,30 @@
+---------------------DOMINGO 02/06/2023-------------------------
+
+Creamos Modelos(carpeta:models) 'Generes.js' y 'Videogames.js'.Exportamos.
+Las importamos a la base de datos(db.js) y creamos las relaciones.(carpeta:src)
+                         TODO FUNCIONA!!.
+
+---------------------LUNES 03/06/2023----------------------------- 
+
+Creamos los handlers(carpeta:handlers)
+Conectamos con las rutas en index.js(carperta:routes)
+Lo importamos a app.js(carpeta:src) como 'routes' y lo conectamos con el servidor mediante 'express'
+Hicimos varias peticiones tipo get y post con el thunder client.
+                      TODO FUNCIONA!!.
+
+--------------------MARTES03/07/2023----------------------------------
+  NO estoy pudiendo ver la tabla intermedia (videogameGeneres) en la base de datos.
+  NO lo estoy pudiendo cargar a mi base de datos.
+
+
+ Relaciones arrgladas. 
+ Peticion a thurrer client sacarle la 's' al protocolo http. 
+ Hicimos un controller para crear un nuevo videogame.
+ Recibimos la respuesta de thurner.
+
+----------------------MIERCOLES 12/7/23-----------------------------------
+
+NO ESTA RENDERIZANDO LA CARD QUE BUSCA POR NOMBRE.
+EN LA ACTION NO SE COMO CONSOLOGEAR LA RESPONSE GET_BY_NAME fijarse eso.
+
+          
