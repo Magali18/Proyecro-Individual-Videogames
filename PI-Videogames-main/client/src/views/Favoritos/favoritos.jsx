@@ -4,7 +4,7 @@ const Favoritos = () => {
   return (
     <div className="bodyFavoritos">
       <Link to="/Home">VOLVER AL INICIO</Link>
-      <h1>FAVORITOS</h1>
+      <h1>FAVORITOS </h1>
     </div>
   );
 };
