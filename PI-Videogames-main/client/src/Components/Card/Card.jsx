@@ -2,8 +2,10 @@ import React from "react";
 import './card.style.css';
 import {Link} from 'react-router-dom'
 
-const Card = ({ game }) => {
-  const { id, name, description, plataforms, background_image, released, rating } = game;
+const Card = (props) => {
+  const { id, name, description, plataforms, background_image, released, rating } = props.game;
+
+
   const cardStyle = {
     backgroundImage: `url(${background_image})`,
     backgroundSize: 'cover'
@@ -14,8 +16,8 @@ const Card = ({ game }) => {
   
       <div style={cardStyle}>
       
-      <h3>{id}</h3>
-      <Link to={`/home/${id}`}>
+    
+      <Link to={`/detail/${id}`}>
       <h3>{name}</h3>
       </Link>
       <h3>{description}</h3>

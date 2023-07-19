@@ -7,7 +7,7 @@ const Landing = () => {
   return (
     <div className="body">
     <div  >
-      <h1>PROYECTO INDIVIDUAL -VIDEOGAMES</h1>
+      <h1>PROYECTO INDIVIDUAL -VIDEOGAMES 🎮</h1>
       <h5>Magali M. Pereyra</h5>
 
       <Link to='/home'>

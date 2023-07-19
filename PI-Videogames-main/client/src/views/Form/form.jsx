@@ -1,34 +1,52 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './form.style.css';
+import "./form.style.css";
 import { postVideogame } from "../../Redux/acction";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
+import validate from "./validate";
 
 const Form = () => {
   const dispatch = useDispatch();
+  const [mensaje, setMensaje] = useState("");
 
   const [input, setInput] = useState({
-    name: '',
-    description: '',
-    platforms: '',
-    image: '',
-    released: '',
-    rating: ''
+    nombre: "",
+    description: "",
+    platforms: "",
+    image: "",
+    released: "",
+    rating: "",
+    genres: "",
+  });
+  const [errors, setErrors] = useState({
+    nombre: "",
+    description: "",
+    platforms: "",
+    image: "",
+    released: "",
+    rating: "",
+    genres: "",
   });
 
-  const [mensaje, setMensaje] = useState('');
-
-  function handleChange(event) {
+  function handleChange(e) {
     setInput({
       ...input,
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+
     dispatch(postVideogame(input));
-    setMensaje('Videojuego creado con exito');
+
+    setMensaje("Videojuego creado con éxito");
   }
 
   return (
@@ -36,43 +54,111 @@ const Form = () => {
       <Link to="/home">
         <h3>VOLVER AL INICIO</h3>
       </Link>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>NOMBRE DEL VIDEOJUEGO</label>
-            <input value={input.name} name='name' type='text' onChange={handleChange} />
-          </div>
+      <h2>CREAR NUEVO VIDEOGAME</h2>
 
+      <div>
+        <form className="formStyle" onSubmit={handleSubmit}>
           <div>
-            <label>DESCRIPCIÓN</label>
-            <input value={input.description} name='description' type='text' onChange={handleChange} />
+            <label className="labelStyle"> VIDEOJUEGO </label>
+            <input
+              className="styleInput"
+              value={input.nombre}
+              name="nombre"
+              type="text"
+              onChange={handleChange}
+              placeholder="Nombre del videogame"
+            />
+            <span>{errors.nombre}</span>
           </div>
+          <div></div>
 
           <div>
             <label>PLATAFORMAS</label>
-            <input value={input.platforms} name='platforms' type='text' onChange={handleChange} />
+            <input
+              className="styleInput"
+              value={input.platforms}
+              name="platforms"
+              type="text"
+              onChange={handleChange}
+            />
+            <span>{errors.platforms}</span>
           </div>
 
           <div>
             <label>IMAGEN</label>
-            <input value={input.image} name='image' type="text" onChange={handleChange} />
+            <input
+              className="styleInput"
+              value={input.image}
+              name="image"
+              type="text"
+              onChange={handleChange}
+              placeholder="url.img"
+            />
+            <span>{errors.image}</span>
           </div>
 
           <div>
             <label>FECHA DE LANZAMIENTO</label>
-            <input value={input.released} name='released' type='text' onChange={handleChange} />
+            <input
+              className="styleInput"
+              value={input.released}
+              name="released"
+              type="text"
+              onChange={handleChange}
+              placeholder="dd/mm/aaaa"
+            />
+            <span>{errors.released}</span>
           </div>
 
           <div>
             <label>RATING</label>
-            <input value={input.rating} name='rating' type='text' onChange={handleChange} />
+            <input
+              className="styleInput"
+              value={input.rating}
+              name="rating"
+              type="text"
+              onChange={handleChange}
+              placeholder="ejemplo: 1.23"
+            />
+            <span>{errors.rating}</span>
+          </div>
+          <div>
+            <label>GENEROS</label>
+            <input
+              className="styleInput"
+              value={input.genres}
+              name="genres"
+              type="text"
+              onChange={handleChange}
+              placeholder="Ingrese el texto"
+            />
+            <span>{errors.genres}</span>
+          </div>
+          <div>
+            <label>DESCRIPCIÓN</label>
+            <input
+              className="styleInput1"
+              value={input.description}
+              name="description"
+              type="text"
+              onChange={handleChange}
+              placeholder="Ingrese el texto"
+            />
+            <span>{errors.description}</span>
           </div>
 
-          <div>
+          {errors.image ||
+          errors.description ||
+          errors.nombre ||
+          errors.released ||
+          errors.platforms ||
+          errors.rating ||
+          errors.genres ? null : (
             <button type="submit">CREAR</button>
-          </div>
+          )}
         </form>
-        {mensaje && <p>{mensaje}</p>}
+
+        {mensaje && <p className="mensajeStyle">{mensaje}</p>}
       </div>
     </div>
   );

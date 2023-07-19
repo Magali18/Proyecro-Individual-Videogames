@@ -27,4 +27,4 @@ Hicimos varias peticiones tipo get y post con el thunder client.
 NO ESTA RENDERIZANDO LA CARD QUE BUSCA POR NOMBRE.
 EN LA ACTION NO SE COMO CONSOLOGEAR LA RESPONSE GET_BY_NAME fijarse eso.
 
-          
+         
