@@ -19,12 +19,14 @@ const Card = (props) => {
     
       <Link to={`/detail/${id}`}>
       <h3>{name}</h3>
-      </Link>
+     </Link>
       <h3>{description}</h3>
+    
+      
       <h3>{plataforms}</h3>
       <h3>{released}</h3>
       <h3>{rating}</h3>
-    </div>
+    </div>  
     </div>
   );
 };

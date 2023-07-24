@@ -45,7 +45,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogameCopy:
-          action.payload == "Mayor"
+          action.payload === "Mayor"
             ? state.allVideogames.slice().sort((a, b) => b.rating - a.rating) 
             : state.allVideogames.slice().sort((a, b) => a.rating - b.rating), 
       };
@@ -53,11 +53,16 @@ function rootReducer(state = initialState, action) {
 
     case ORDENAR_VIDEOGAME:
       return {
-        ...state,
-
-        videogameCopy: state.videogameCopy
+        ...state, 
+         videogameCopy: 
+         action.payload === "A-Z"?
+       state.videogameCopy
           .slice()
-          .sort((a, b) => a.name.localeCompare(b.name)),
+          .sort((a, b) => a.name.localeCompare(b.name)):
+          state.videogameCopy
+          .slice()
+          .sort((a, b) => b.name.localeCompare(a.name))
+
       };
 
     case GENERES:

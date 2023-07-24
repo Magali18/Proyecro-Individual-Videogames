@@ -1,13 +1,14 @@
 .containerLinks{
 
   position:absolute;
+  margin: 1%;
     top: 0px ;
     left: 400px;
 
     
 }
 .containerLinks li {
-
+ 
     list-style: none;
     display :inline-block;
     padding: 10px 20px;
@@ -110,5 +111,11 @@
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+.botonReset{
+
+position: fixed;
+left: 20px;
+top: 10%;
 }
       

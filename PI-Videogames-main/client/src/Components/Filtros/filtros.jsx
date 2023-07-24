@@ -4,55 +4,61 @@ const Filtros = ({
   hanlderOrdenar,
   genereHandler,
   destinoInfoHandler,
-  hadlerReset,
+
 }) => {
   return (
     <div className="bodyFiltros">
-
-      <select onChange={raitingHandleSubmit}>
-        {['Mayor', 'Menor'].map((value) => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
-        
-      </select>
-
+    
+        <label>Ordear por rating:</label>
+        <select onChange={raitingHandleSubmit}>
+          {["Mayor", "Menor"].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+ 
+      <label>Ordenar Alfabeticamente:</label>
       <select onChange={hanlderOrdenar}>
-        {["Ordenar", "A-Z"].map((value) => (
+        {["Z-A", "A-Z"].map((value) => (
           <option key={value} value={value}>
             {value}
           </option>
         ))}
       </select>
+    
+        <label>Filtrar por genero:</label>
 
-      <select onChange={genereHandler}>
-        {[
-          "Action",
-          "Indie",
-          "Adventure",
-          "RPG",
-          "Strategy",
-          "Shooter",
-          "Casual",
-          "Simulation",
-          "Puzzle",
-          "Arcade",
-          "Platformer",
-          "Massively Multiplayer",
-          "Racing",
-          "Sports",
-          "Fighting",
-          "Family",
-          "Board Games",
-          "Educational",
-          "Card",
-        ].map((value) => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
-      </select>
+        <select onChange={genereHandler}>
+          {[
+            "Action",
+            "Indie",
+            "Adventure",
+            "RPG",
+            "Strategy",
+            "Shooter",
+            "Casual",
+            "Simulation",
+            "Puzzle",
+            "Arcade",
+            "Platformer",
+            "Massively Multiplayer",
+            "Racing",
+            "Sports",
+            "Fighting",
+            "Family",
+            "Board Games",
+            "Educational",
+            "Card",
+          ].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+
+
+      <label>Filtrar por procedencia:</label>
 
       <select onChange={destinoInfoHandler}>
         {["Api", "DB"].map((value) => (
@@ -62,9 +68,7 @@ const Filtros = ({
         ))}
       </select>
 
-      <button className="butonStyle" onClick={hadlerReset}>
-        Reset
-      </button>
+     
     </div>
   );
 };

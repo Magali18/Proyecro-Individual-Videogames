@@ -6,7 +6,7 @@ const createVideogameHandler = async (req,res)=>{
     name,
     description,
     plataformas,
-    imagen,
+    background_image,
     fechaDeLanzamiento,
     rating} = req.body
     try {
@@ -15,7 +15,7 @@ const createVideogameHandler = async (req,res)=>{
         name,
         description,
         plataformas,
-        imagen,
+        background_image,
         fechaDeLanzamiento,
       rating)
 

@@ -1,12 +1,15 @@
 .bodyFiltros {
     position:absolute;
     top: 0px;
-    left: 10px;
+    left: 200px;
   }
   
   .bodyFiltros select{
     color: antiquewhite;
     background-color: rgba(52, 6, 60, 0.772);
+  }
+  .bodyFiltros label{
+    font-size: 60%;
   }
   .butonStyle{
     

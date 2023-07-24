@@ -1,12 +1,12 @@
 function validate(input) {
   let errors = {};
 
-  if (!input.nombre) {
-    errors.nombre = "Campo requerido";
+  if (!input.name) {
+    errors.name = "Campo requerido";
   }
 
-  if (!(input.nombre.length < 30)) {
-    errors.nombre = "El nombre no puede superar los 25 caracteres";
+  if (!(input.name.length < 30)) {
+    errors.name = "El nombre no puede superar los 25 caracteres";
   }
   //-----------------------------------------
   if (!input.rating) {
@@ -17,8 +17,8 @@ function validate(input) {
   }
   //--------------------------------------------------------
 
-  if(!input.image){
-    errors.image= 'campo requerido'
+  if(!input.background_image){
+    errors.background_image = 'campo requerido'
   }
 
   //-----------------------------------------------
@@ -31,8 +31,8 @@ function validate(input) {
     errors.description = "Campo requerido";
   }
   //------------------------------
-  if(!input.platforms){
-    errors.platforms = 'Campo requerido'
+  if(!input.plataforms){
+    errors.plataforms = 'Campo requerido'
   }
   if(!input.genres){
     errors.genres = 'Campo requerido'

@@ -6,16 +6,16 @@ const createVideogame = async (
     name,
     description,
     plataforms,
-    image,
+    background_image,
     released,
     rating
-  ) => {
+  ) => { 
     return await Videogame.create({
       id,
       name,
       description,
       plataforms,
-      image,
+      background_image,
       released,
       rating,
     });

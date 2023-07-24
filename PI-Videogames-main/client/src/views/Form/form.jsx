@@ -8,25 +8,30 @@ import validate from "./validate";
 const Form = () => {
   const dispatch = useDispatch();
   const [mensaje, setMensaje] = useState("");
+  const [inputGenero, setInputGenero] = useState([]);
 
   const [input, setInput] = useState({
-    nombre: "",
+    name: "",
     description: "",
-    platforms: "",
-    image: "",
+    plataforms: "",
+    background_image: " ",
     released: "",
     rating: "",
-    genres: "",
+    genres: [...inputGenero]
   });
   const [errors, setErrors] = useState({
-    nombre: "",
+    name: "",
     description: "",
-    platforms: "",
-    image: "",
+    plataforms: "",
+    background_image: " ",
     released: "",
     rating: "",
     genres: "",
   });
+  function changeGenere(e) {
+    const selectValue = e.target.value;
+    setInputGenero([...inputGenero, selectValue]);
+  }
 
   function handleChange(e) {
     setInput({
@@ -43,122 +48,153 @@ const Form = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    dispatch(postVideogame(input));
-
-    setMensaje("Videojuego creado con éxito");
+    if (
+      !errors.background_image &&
+      !errors.description &&
+      !errors.genres &&
+      !errors.name &&
+      !errors.rating &&
+      !errors.released &&
+      !errors.plataforms
+    ) {
+      dispatch(postVideogame(input));
+      setMensaje("Videojuego creado con éxito");
+    } else {
+      setMensaje("Llenar los campos requeridos");
+      window.alert('No se pueden enviar los datos')
+    }
   }
 
   return (
     <div className="bodyForm">
       <Link to="/home">
-        <h3>VOLVER AL INICIO</h3>
+        <h3>ATRAS</h3>
       </Link>
-      <h2>CREAR NUEVO VIDEOGAME</h2>
+
+      <h4>CREAR NUEVO VIDEOGAME</h4>
 
       <div>
-        <form className="formStyle" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div>
-            <label className="labelStyle"> VIDEOJUEGO </label>
+            <div>
+              <label> Videojuego:</label>
+            </div>
             <input
-              className="styleInput"
-              value={input.nombre}
-              name="nombre"
+              value={input.name}
+              name="name"
               type="text"
               onChange={handleChange}
               placeholder="Nombre del videogame"
             />
-            <span>{errors.nombre}</span>
+            <span>{errors.name}</span>
           </div>
-          <div></div>
-
           <div>
-            <label>PLATAFORMAS</label>
+            <div>
+              <label>Plataformas:</label>
+            </div>
             <input
-              className="styleInput"
-              value={input.platforms}
-              name="platforms"
+              value={input.plataforms}
+              name="plataforms"
               type="text"
               onChange={handleChange}
             />
-            <span>{errors.platforms}</span>
-          </div>
-
-          <div>
-            <label>IMAGEN</label>
-            <input
-              className="styleInput"
-              value={input.image}
-              name="image"
-              type="text"
-              onChange={handleChange}
-              placeholder="url.img"
-            />
-            <span>{errors.image}</span>
+            <span>{errors.plataforms}</span>
           </div>
 
           <div>
-            <label>FECHA DE LANZAMIENTO</label>
-            <input
-              className="styleInput"
-              value={input.released}
-              name="released"
-              type="text"
-              onChange={handleChange}
-              placeholder="dd/mm/aaaa"
-            />
-            <span>{errors.released}</span>
+            <label>Imagen:</label>
           </div>
+          <input
+            value={input.background_image}
+            name="background_image"
+            type="text"
+            onChange={handleChange}
+            placeholder="url.imagen"
+          />
+          <span>{errors.background_image}</span>
 
           <div>
-            <label>RATING</label>
-            <input
-              className="styleInput"
-              value={input.rating}
-              name="rating"
-              type="text"
-              onChange={handleChange}
-              placeholder="ejemplo: 1.23"
-            />
-            <span>{errors.rating}</span>
+            <label>Fecha de lanzamiento:</label>
           </div>
-          <div>
-            <label>GENEROS</label>
-            <input
-              className="styleInput"
-              value={input.genres}
-              name="genres"
-              type="text"
-              onChange={handleChange}
-              placeholder="Ingrese el texto"
-            />
-            <span>{errors.genres}</span>
-          </div>
-          <div>
-            <label>DESCRIPCIÓN</label>
-            <input
-              className="styleInput1"
-              value={input.description}
-              name="description"
-              type="text"
-              onChange={handleChange}
-              placeholder="Ingrese el texto"
-            />
-            <span>{errors.description}</span>
-          </div>
+          <input
+            value={input.released}
+            name="released"
+            type="text"
+            onChange={handleChange}
+            placeholder="dd/mm/aaaa"
+          />
+          <span>{errors.released}</span>
 
-          {errors.image ||
-          errors.description ||
-          errors.nombre ||
-          errors.released ||
-          errors.platforms ||
-          errors.rating ||
-          errors.genres ? null : (
-            <button type="submit">CREAR</button>
-          )}
+          <div>
+            <label>Rating:</label>
+          </div>
+          <input
+            value={input.rating}
+            name="rating"
+            type="text"
+            onChange={handleChange}
+            placeholder="ejemplo: 1.23"
+          />
+          <span>{errors.rating}</span>
+
+          <div>
+            <label>Generos:</label>
+          </div>
+          <select onChange={changeGenere}>
+            {[
+              "Action",
+              "Indie",
+              "Adventure",
+              "RPG",
+              "Strategy",
+              "Shooter",
+              "Casual",
+              "Simulation",
+              "Puzzle",
+              "Arcade",
+              "Platformer",
+              "Massively Multiplayer",
+              "Racing",
+              "Sports",
+              "Fighting",
+              "Family",
+              "Board Games",
+              "Educational",
+              "Card",
+            ].map((value) => (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            ))}
+          </select>
+
+          <span>{errors.genres}</span>
+
+          <div>
+            <label>Descripcion</label>{" "}
+          </div>
+          <input
+            value={input.description}
+            name="description"
+            type="text"
+            onChange={handleChange}
+            placeholder="Ingrese el texto"
+          />
+          <span>{errors.description}</span>
+          <div>
+            {errors.image ||
+            errors.description ||
+            errors.nombre ||
+            errors.released ||
+            errors.plataforms ||
+            errors.rating ||
+            errors.genres ? null : (
+              <button type="submit">CREAR</button>
+            )}
+          </div>
         </form>
 
-        {mensaje && <p className="mensajeStyle">{mensaje}</p>}
+        {mensaje && <p>{mensaje}</p>}
       </div>
     </div>
   );

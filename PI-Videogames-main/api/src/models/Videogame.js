@@ -13,22 +13,32 @@ module.exports = (sequelize) => {
       },
       name: {
         type: DataTypes.STRING,
+        allowNull: false,
         
       },
       description: {
         type: DataTypes.TEXT,
+        allowNull: false,
         
       },
-      platforms: {
+      genres:{
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+        allowNull: true,
+
+      },
+
+      plataforms: {
         type: DataTypes.ARRAY(DataTypes.TEXT), 
-      
-        defaultValue: []
+        allowNull:false
+
       },
-      image: {
+      background_image: {
         type: DataTypes.TEXT,
-      },
+        allowNull: false
+      },       
       released: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DATEONLY,
+        allowNull: false,
 
       
       },

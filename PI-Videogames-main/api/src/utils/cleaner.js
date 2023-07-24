@@ -5,8 +5,8 @@ const cleaner = (arr) => {
 
       id: i.id,
       name: i.name,
-      //description:
-      //platforms:
+      description: i.description,
+      platforms: i.platforms,
       image: i.background_image,
       released: i.released,
       rating: i.rating

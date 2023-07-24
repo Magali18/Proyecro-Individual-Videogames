@@ -5,7 +5,7 @@ import Detail from "./views/Detail/detail";
 import Form from "./views/Form/form";
 import Home from "./views/Home/home";
 import Landing from './views/Landing/landing'
-import Favoritos from "./views/Favoritos/favoritos";
+
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       ) : (
         <>
           <Switch>
-            <Route path="/favoritos" component={Favoritos}/>
+            
             <Route path="/home" component={Home} />
             <Route path="/form" component={Form} />
             <Route path="/detail/:id" component={Detail} />

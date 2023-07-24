@@ -25,7 +25,8 @@ const Home = () => {
 
    const [numeroPagina, setNumeroPagina] = useState(1);
 
-   const [gameDePantalla] = useState(10);
+    const [gameDePantalla] = useState(10);
+   //-------------------------------------
   // // cuntos videogames van a estar en pantalla ? : 10
 
   // total videogames : 100
@@ -35,42 +36,45 @@ const Home = () => {
 
   //si yo al 50 le resto 10 tengo el principio
   //               1              10
-  const final = numeroPagina * gameDePantalla;
-  //              10          10
-  const inicio = final - gameDePantalla;
+//---------------------------------------------
+   const final = numeroPagina * gameDePantalla;
+   const inicio = final - gameDePantalla;
+
 
   const paginaPrincipal = videogameCopy.slice(inicio, final);
 
-  const ultimaPgina = Math.ceil(videogameCopy / gameDePantalla);
+   const ultimaPgina = Math.ceil(videogameCopy / gameDePantalla);
 
-    console.log('aqui no hay nada',paginaPrincipal )
+   console.log('aqui no hay nada',paginaPrincipal )
    
 
-  //--------paginado NEXT-------------------------
+  // //--------paginado NEXT-------------------------
 
-   const paginadoNext = () => {
-    if (numeroPagina === ultimaPgina) {
-      setNumeroPagina(numeroPagina);
-    } else {
-     setNumeroPagina(numeroPagina + 1);
-    }
-   };
-  // //--------------PAGINADO BEFORE------------------
+    const paginadoNext = () => {
+     if (numeroPagina === ultimaPgina) {
+    setNumeroPagina(numeroPagina);
+   } else {
+      setNumeroPagina(numeroPagina + 1);
+   }
+  };
+  // // //--------------PAGINADO BEFORE------------------
 
    const paginadoBefore = () => {
-     if (numeroPagina === 1) {
+      if (numeroPagina === 1) {
     setNumeroPagina(numeroPagina);
      } else {
-       setNumeroPagina(numeroPagina - 1);
-     }
+      setNumeroPagina(numeroPagina - 1);
+    }
     
-  };
+   };
 
   //----------------------------------------------------
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(generes());
   }, [dispatch]);
+
+console.log(videogameCopy)
 
   //--------------------------------BUSCAR POR NOMBRE --------------------------------------------------------
   const [searchString, setSearchString] = useState("");
@@ -117,17 +121,17 @@ const hadlerReset =()=>{
 }
   return (
     <div className="homeBody">
-      <NavBar handleChange={handleChange} handleSubmit={handleSubmit} />
+      <NavBar handleChange={handleChange} handleSubmit={handleSubmit} hadlerReset={hadlerReset}/>
 
       <Filtros
         raitingHandleSubmit={raitingHandleSubmit}
         hanlderOrdenar={hanlderOrdenar}
         genereHandler={genereHandler}
         destinoInfoHandler={destinoInfoHandler}
-        hadlerReset={hadlerReset}
+      
       />
 
-      { <Paginado paginadNext={paginadoNext}
+      { <Paginado  paginadNext={paginadoNext}
        paginadoBefore={paginadoBefore} /> }
       <Cards
         paginaPrincipal={paginaPrincipal}
