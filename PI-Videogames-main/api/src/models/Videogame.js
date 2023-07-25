@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 
-//MODELO LLAMADO 'VIDEOGAME':
-
 module.exports = (sequelize) => {
   sequelize.define(
     "Videogame",

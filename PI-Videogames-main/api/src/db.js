@@ -35,7 +35,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 //---------------------------------------------------------------------------------------------------------------------
 
 //MODELOS IMPORTADOS:
-const { Videogame, Genere} = sequelize.models;
+const { Videogame, Genere, videogameGeneres} = sequelize.models;
 
 
 //RELACIONES:
