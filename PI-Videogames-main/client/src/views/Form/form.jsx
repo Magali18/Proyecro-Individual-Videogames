@@ -36,7 +36,7 @@ const [inputGenero, setInputGenero] = useState([]);
     background_image: " ",
     released: "",
     rating: "",
-    genres: "",
+    genres: '',
   });
   
 
@@ -58,7 +58,7 @@ const [inputGenero, setInputGenero] = useState([]);
     if (
       !errors.background_image &&
       !errors.description &&
-      !errors.genres &&
+      /*!errors.genre&&*/ 
       !errors.name &&
       !errors.rating &&
       !errors.released &&
@@ -174,6 +174,9 @@ const [inputGenero, setInputGenero] = useState([]);
               </option>
             ))}
           </select>
+       <ul>{input.genres.map(i=>{
+          return <li> {i}</li>
+        })}</ul>
 
           <span>{errors.genres}</span>
 
@@ -194,8 +197,8 @@ const [inputGenero, setInputGenero] = useState([]);
             errors.name ||
             errors.released ||
             errors.plataforms ||
-            errors.rating ||
-            errors.genres ? null : (
+            errors.rating 
+            /*||errors.genres*/ ? null : (
               <button type="submit">CREAR</button>
             )}
           </div>

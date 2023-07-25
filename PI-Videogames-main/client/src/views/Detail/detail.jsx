@@ -15,7 +15,7 @@ const Detail = () => {
     dispatch(idVideogame(id));
   }, [dispatch, id]);
 
-  const { name, description, genres, image, platforms, rating, released } = detailVideogame;
+  const { name, description, genres,genre, image, platforms, rating, released } = detailVideogame;
 
   return (
     <div className="bodyDetail">
@@ -23,7 +23,7 @@ const Detail = () => {
       <h1>{name}</h1>
       <img className="imgDetail" src={image} alt={name} />
       <div className="bodyStyle">
-      <h5>GENEROS: {genres}</h5>
+      <h5>GENEROS: {genres} </h5>
 
       <h5>PLATAFORMAS:</h5>{platforms}
 

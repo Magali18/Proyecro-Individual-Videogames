@@ -30,7 +30,7 @@ const NavBar = ({ handleChange, handleSubmit,hadlerReset }) => {
       </form>
       <div className="botonReset">
       <button className="button-86" onClick={hadlerReset}>
-        Reset
+      Reset
       </button>
       </div>
  

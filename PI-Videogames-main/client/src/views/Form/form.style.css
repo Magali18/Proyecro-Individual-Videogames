@@ -35,5 +35,9 @@
 .bodyForm p {
         text-align: center;
         color: rgb(1, 5, 1);
+    
         background-color: rgba(54, 52, 217, 0.909);
+}
+.bodyForm li{
+        color: blueviolet;
 }

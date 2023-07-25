@@ -8,7 +8,7 @@ const createVideogameHandler = async (req, res) => {
     description,
     rating,
     background_image,
-    genre
+    genres
     
   } = req.body;
 
@@ -19,7 +19,7 @@ const createVideogameHandler = async (req, res) => {
      description,
      rating,
      background_image,
-     genre
+     genres
       );
 
     res.status(203).json(response);

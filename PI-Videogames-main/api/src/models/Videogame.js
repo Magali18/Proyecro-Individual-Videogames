@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      genre:{
+      genres:{
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
 

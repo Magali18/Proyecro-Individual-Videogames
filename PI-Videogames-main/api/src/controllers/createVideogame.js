@@ -6,7 +6,7 @@ const createVideogame = async (
    description, 
    rating,
    background_image,
-   genre
+   genres
   
    )=>{
   
@@ -16,7 +16,7 @@ const createVideogame = async (
     description,
     rating,
     background_image,
-    genre
+    genres
 
   });
 };

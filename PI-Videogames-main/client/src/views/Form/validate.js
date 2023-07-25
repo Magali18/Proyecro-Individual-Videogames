@@ -34,9 +34,9 @@ function validate(input) {
   if(!input.plataforms){
     errors.plataforms = 'Campo requerido'
   }
-  if(!input.genres){
+  /*if(!input.genres){
     errors.genres = 'Campo requerido'
-  }
+  }*/
 
   return errors;
 }

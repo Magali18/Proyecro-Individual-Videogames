@@ -22,11 +22,11 @@ const getVideogameById = async (id, auxiliar) => {
       background_image: image,
       released,
      /* platforms,*/
-       /* genres,*/
+        genres,
     } = idVideogame;
   
     /*const platformNames = platforms.map((platform) => platform.platform.name);*/
-      /*const genreNames = genres.map((genre) => genre.name);  */
+     genres ? genreNames =  genres.map((genre) => genre.name): console.log('el array esta vacio')
   
     return {
    
@@ -36,7 +36,7 @@ const getVideogameById = async (id, auxiliar) => {
       image,
       released,
      /* platforms: platformNames,*/
-     /* genres: genreNames,*/
+     genres: genreNames,
     };
   };
   module.exports={getVideogameById}

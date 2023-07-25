@@ -24,6 +24,7 @@ const Card = (props) => {
     
       
       <h3>{plataforms}</h3>
+      
       <h3>{released}</h3>
       <h3>{rating}</h3>
     </div>  
