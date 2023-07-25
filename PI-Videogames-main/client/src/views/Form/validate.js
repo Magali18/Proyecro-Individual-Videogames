@@ -23,7 +23,7 @@ function validate(input) {
 
   //-----------------------------------------------
 
-  if (!/^(?=.*\/)[0-9\/]+$/.test(input.released)) {
+  if (!(input.released)) {
     errors.released = "Campo requerido";
   }
 

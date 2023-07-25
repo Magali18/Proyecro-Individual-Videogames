@@ -1,33 +1,33 @@
 //-------------------POST HANDLERS---------------------------------------
-const {createVideogame} = require ('../controllers/index')
+const { createVideogame } = require('../controllers/index');
 
-const createVideogameHandler = async (req,res)=>{
-  const {id,
+const createVideogameHandler = async (req, res) => {
+  const {
+    id,
     name,
     description,
-    plataformas,
+    rating,
     background_image,
-    fechaDeLanzamiento,
-    rating} = req.body
-    try {
-      const response = await createVideogame(
-        id,
-        name,
-        description,
-        plataformas,
-        background_image,
-        fechaDeLanzamiento,
-      rating)
-
-      res.status(200).json(response)
-      
-    } catch (error) {
-      res.status(400).json({error:error.message})
-    }
+    genre
     
-  };
-  module.exports = {createVideogameHandler}
+  } = req.body;
 
+  try {
+    const response = await createVideogame(
+      id,
+     name,
+     description,
+     rating,
+     background_image,
+     genre
+      );
 
-  
-  
+    res.status(203).json(response);
+
+  } catch (error) {
+    console.log(error)
+    res.status(401).json({ error: error.message });
+  }
+};
+
+module.exports = { createVideogameHandler };

@@ -15,18 +15,18 @@ const getVideogameById = async (id, auxiliar) => {
     }
   
     const {
-    
+
       name,
       description,
       rating,
       background_image: image,
       released,
-      platforms,
-      genres,
+     /* platforms,*/
+       /* genres,*/
     } = idVideogame;
   
-    const platformNames = platforms.map((platform) => platform.platform.name);
-    const genreNames = genres.map((genre) => genre.name);
+    /*const platformNames = platforms.map((platform) => platform.platform.name);*/
+      /*const genreNames = genres.map((genre) => genre.name);  */
   
     return {
    
@@ -35,8 +35,8 @@ const getVideogameById = async (id, auxiliar) => {
       rating,
       image,
       released,
-      platforms: platformNames,
-      genres: genreNames,
+     /* platforms: platformNames,*/
+     /* genres: genreNames,*/
     };
   };
   module.exports={getVideogameById}

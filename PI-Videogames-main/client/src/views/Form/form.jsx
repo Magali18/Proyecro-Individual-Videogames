@@ -2,22 +2,28 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./form.style.css";
 import { postVideogame } from "../../Redux/acction";
+
 import { useDispatch } from "react-redux";
 import validate from "./validate";
 
 const Form = () => {
   const dispatch = useDispatch();
   const [mensaje, setMensaje] = useState("");
-  const [inputGenero, setInputGenero] = useState([]);
+  
+const [inputGenero, setInputGenero] = useState([]);
 
+  function changeGenere(e) {
+    const selectValue = e.target.value;
+    setInputGenero([...inputGenero, selectValue]);
+  }
   const [input, setInput] = useState({
     name: "",
     description: "",
+    genres: inputGenero,
     plataforms: "",
     background_image: " ",
     released: "",
     rating: "",
-    genres: [...inputGenero]
   });
   const [errors, setErrors] = useState({
     name: "",
@@ -28,10 +34,7 @@ const Form = () => {
     rating: "",
     genres: "",
   });
-  function changeGenere(e) {
-    const selectValue = e.target.value;
-    setInputGenero([...inputGenero, selectValue]);
-  }
+  
 
   function handleChange(e) {
     setInput({
@@ -61,7 +64,7 @@ const Form = () => {
       setMensaje("Videojuego creado con éxito");
     } else {
       setMensaje("Llenar los campos requeridos");
-      window.alert('No se pueden enviar los datos')
+      window.alert("No se pueden enviar los datos");
     }
   }
 
@@ -107,7 +110,7 @@ const Form = () => {
           <input
             value={input.background_image}
             name="background_image"
-            type="text"
+            type="url"
             onChange={handleChange}
             placeholder="url.imagen"
           />
@@ -121,7 +124,7 @@ const Form = () => {
             name="released"
             type="text"
             onChange={handleChange}
-            placeholder="dd/mm/aaaa"
+            placeholder="aaa-mm-dd"
           />
           <span>{errors.released}</span>
 
@@ -171,7 +174,7 @@ const Form = () => {
           <span>{errors.genres}</span>
 
           <div>
-            <label>Descripcion</label>{" "}
+            <label>Descripcion</label>
           </div>
           <input
             value={input.description}
@@ -184,7 +187,7 @@ const Form = () => {
           <div>
             {errors.image ||
             errors.description ||
-            errors.nombre ||
+            errors.name ||
             errors.released ||
             errors.plataforms ||
             errors.rating ||
