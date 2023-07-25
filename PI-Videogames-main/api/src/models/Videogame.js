@@ -9,6 +9,11 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
+      genre:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false
+
+      },
       name: {
         type: DataTypes.TEXT,
         allowNull: false

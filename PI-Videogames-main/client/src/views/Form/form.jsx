@@ -14,12 +14,16 @@ const [inputGenero, setInputGenero] = useState([]);
 
   function changeGenere(e) {
     const selectValue = e.target.value;
+
     setInputGenero([...inputGenero, selectValue]);
+
+  setInput((input) => ({ ...input, genres: [...inputGenero , selectValue]  }));
+
   }
   const [input, setInput] = useState({
     name: "",
     description: "",
-    genres: inputGenero,
+    genres: [],
     plataforms: "",
     background_image: " ",
     released: "",
@@ -143,7 +147,7 @@ const [inputGenero, setInputGenero] = useState([]);
           <div>
             <label>Generos:</label>
           </div>
-          <select onChange={changeGenere}>
+          <select value={input.genres} onChange={changeGenere}>
             {[
               "Action",
               "Indie",
