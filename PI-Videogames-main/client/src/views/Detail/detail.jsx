@@ -25,7 +25,7 @@ const Detail = () => {
       <div className="bodyStyle">
       <h5>GENEROSSSSS: {genres} </h5>
 
-      <h5>PLATAFORMAS:</h5>{platforms}
+      <h5>PLATAFORMASSSSSSSSSSSSS:</h5>{platforms}
 
       
       
