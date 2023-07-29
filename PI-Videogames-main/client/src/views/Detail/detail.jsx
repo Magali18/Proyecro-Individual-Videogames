@@ -23,7 +23,7 @@ const Detail = () => {
       <h1>{name}</h1>
       <img className="imgDetail" src={image} alt={name} />
       <div className="bodyStyle">
-      <h5>GENEROS: {genres} </h5>
+      <h5>GENEROSSSSS: {genres} </h5>
 
       <h5>PLATAFORMAS:</h5>{platforms}
 
